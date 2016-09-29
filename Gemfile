@@ -12,6 +12,7 @@ gem "therubyracer"
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
 gem 'cpf_validator', '~> 0.2.1'
+gem 'rails-i18n', '~> 4.0.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do

@@ -14,46 +14,52 @@
       </div>
     </div>
   <% end %>
-
   <div class="form-group">
     <%= f.label :aluno_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :aluno_id, :class => 'form-control' %>
+      <%= f.collection_select(:aluno_id, Aluno.all, :id, :nome, {include_blank: true}, :class => 'form-control' ) %>
     </div>
     <%=f.error_span(:aluno_id) %>
   </div>
   <div class="form-group">
     <%= f.label :curso_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :curso_id, :class => 'form-control' %>
+      <%= f.collection_select(:curso_id, Curso.all, :id, :nome, {include_blank: true}, :class => 'form-control') %>
+    </div>
+    <%=f.error_span(:curso_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :periodo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select(:curso_id, Curso.all, :id, :periodo, {include_blank: true}, :class => 'form-control') %>
     </div>
     <%=f.error_span(:curso_id) %>
   </div>
   <div class="form-group">
     <%= f.label :data_matricula, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :data_matricula, :class => 'form-control' %>
+      <%= f.date_field :data_matricula, :class => 'form-control' %>
     </div>
     <%=f.error_span(:data_matricula) %>
   </div>
   <div class="form-group">
     <%= f.label :ano, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :ano, :class => 'form-control' %>
+    <div class="col-lg-10">      
+      <%= f.select(:ano, options_for_select((2000..Time.now.year).to_a.reverse), {include_blank: true}, { :class => 'form-control' }) %>
     </div>
     <%=f.error_span(:ano) %>
   </div>
   <div class="form-group">
     <%= f.label :ativo, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :ativo, :class => 'form-control' %>
+      <%= f.check_box :ativo, :class => 'checkbox' %>
     </div>
     <%=f.error_span(:ativo) %>
   </div>
   <div class="form-group">
     <%= f.label :pago, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :pago, :class => 'form-control' %>
+      <%= f.check_box :pago, :class => 'checkbox' %>
     </div>
     <%=f.error_span(:pago) %>
   </div>
