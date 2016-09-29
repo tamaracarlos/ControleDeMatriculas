@@ -32,7 +32,9 @@
   <div class="form-group">
     <%= f.label :periodo, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :periodo, :class => 'form-control' %>
+    <%= select("curso", "periodo", 
+              options_for_select({ "1 - Matutino" => "1", "2 - Vespertino" => "2", "3 - Noturno" => "3" }),
+              {include_blank: true}, :class => 'form-control') %>
     </div>
     <%=f.error_span(:periodo) %>
   </div>
