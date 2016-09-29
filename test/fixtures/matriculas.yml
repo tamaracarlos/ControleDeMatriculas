@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aluno_id: 
+  curso_id: 
+  data_matricula: 2016-09-29
+  ano: 1
+  ativo: 1
+  pago: 1
+
+two:
+  aluno_id: 
+  curso_id: 
+  data_matricula: 2016-09-29
+  ano: 1
+  ativo: 1
+  pago: 1

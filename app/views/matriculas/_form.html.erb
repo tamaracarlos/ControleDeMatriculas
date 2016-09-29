@@ -1,0 +1,69 @@
+<%= form_for @matricula, :html => { :class => "form-horizontal matricula" } do |f| %>
+
+  <% if @matricula.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@matricula.errors.count, "error") %> prohibited this matricula from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @matricula.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :aluno_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :aluno_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:aluno_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :curso_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :curso_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:curso_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_matricula, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :data_matricula, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:data_matricula) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ano, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :ano, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ano) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ativo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :ativo, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ativo) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :pago, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :pago, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:pago) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                matriculas_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
