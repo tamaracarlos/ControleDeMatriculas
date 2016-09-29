@@ -4,16 +4,17 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:cpf) %>:</strong></dt>
-  <dd><%= @aluno.cpf %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rg) %>:</strong></dt>
-  <dd><%= @aluno.rg %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:data_nascimento) %>:</strong></dt>
-  <dd><%= @aluno.data_nascimento %></dd>
   <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
   <dd><%= @aluno.nome %></dd>
   <dt><strong><%= model_class.human_attribute_name(:telefone) %>:</strong></dt>
   <dd><%= @aluno.telefone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cpf) %>:</strong></dt>
+  <dd><%= @aluno.cpf %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rg) %>:</strong></dt>
+  <dd><%= @aluno.rg %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:data_de_nascimento) %>:</strong></dt>
+  <dd><%= @aluno.data_nascimento %></dd>
+  
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
