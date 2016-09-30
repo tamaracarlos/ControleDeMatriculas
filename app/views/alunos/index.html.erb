@@ -9,7 +9,7 @@
       <th><%= model_class.human_attribute_name(:telefone) %></th>    
       <th><%= model_class.human_attribute_name(:cpf) %></th>
       <th><%= model_class.human_attribute_name(:rg) %></th>
-      <th><%= model_class.human_attribute_name(:data_nascimento) %></th>
+      <th><%= model_class.human_attribute_name(:data_de_nascimento) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
         <td><%= aluno.telefone %></td>
         <td><%= aluno.cpf %></td>
         <td><%= aluno.rg %></td>
-        <td><%= aluno.data_nascimento %></td>
+        <td><%= l(aluno.data_nascimento) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_aluno_path(aluno), :class => 'btn btn-default btn-xs' %>

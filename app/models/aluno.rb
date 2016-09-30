@@ -12,13 +12,12 @@ class Aluno < ActiveRecord::Base
 	validates :rg, 
 					length: {maximum: 10, message: 'deve conter no máximo 10 números'}
 
-	# validates_presence_of :data_nascimento, :if => :ano_bissexto?
+	# validates_presence_of :data_nascimento, :if => :ano_bissexto? , message: 'ano bissexto'
 			
-	 	
-	# def ano_bissexto? 
-	# 	if data_nascimento == "2008-02-02"
-	# 	  puts "Ano Bissexto"		   
-	# 	end
+
+	# def ano_bissexto?	
+	# 	 data_nascimento.leap? == true
 	# end
+
 
 end

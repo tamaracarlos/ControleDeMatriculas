@@ -8,8 +8,8 @@
   <dd><%= @matricula.aluno_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:curso_id) %>:</strong></dt>
   <dd><%= @matricula.curso_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:data_matricula) %>:</strong></dt>
-  <dd><%= @matricula.data_matricula %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:data_da_matrícula) %>:</strong></dt>
+  <dd><%= l(@matricula.data_matricula) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ano) %>:</strong></dt>
   <dd><%= @matricula.ano %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ativo) %>:</strong></dt>
