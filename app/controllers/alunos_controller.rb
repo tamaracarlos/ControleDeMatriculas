@@ -2,7 +2,11 @@ class AlunosController < ApplicationController
   before_action :set_aluno, only: [:show, :edit, :update, :destroy]
 
   def index
-    @alunos = Aluno.all
+     if params[:search]
+     @alunos = Aluno.search(params[:search])
+    else
+     @alunos = Aluno.all
+    end
   end
 
   def show

@@ -1,8 +1,12 @@
 class MatriculasController < ApplicationController
   before_action :set_matricula, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @matriculas = Matricula.all
+ def index
+     if params[:search]
+     @matriculas = Matricula.search(params[:search])
+    else
+     @matriculas = Matricula.all
+    end
   end
 
   def show
@@ -13,7 +17,7 @@ class MatriculasController < ApplicationController
   end
 
   def edit
-  end
+  end 
 
   def create
     @matricula = Matricula.new(matricula_params)

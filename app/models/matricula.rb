@@ -4,4 +4,6 @@ class Matricula < ActiveRecord::Base
 
   validates_presence_of :data_matricula, :ano, :pago, :aluno, :curso, message: 'deve ser preenchido' 
   validates :aluno, uniqueness: { scope: :curso, scope: :ano, message: 'já matriculado.' }
+
+  scope :search, ->(query) {where("aluno_id like ?", "%#{query}%")}
 end

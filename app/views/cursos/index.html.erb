@@ -1,6 +1,13 @@
 <%- model_class = Curso -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+    <%= form_tag cursos_path, method: :get, class: "navbar-form navbar-right" do %>
+  <div class="form-group">
+    <%= text_field_tag 'search', nil, class: "form-control" %>
+    <%= button_to "Buscar", nil, class: "btn btn-default" %>
+  </div>
+  <% end %> 
+  </h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -25,7 +32,7 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
-        </td>
+          </td>
       </tr>
     <% end %>
   </tbody>

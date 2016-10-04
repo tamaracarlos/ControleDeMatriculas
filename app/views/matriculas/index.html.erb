@@ -1,7 +1,18 @@
 <%- model_class = Matricula -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>
+  <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %> 
+  <%= form_tag matriculas_path, method: :get, class: "navbar-form navbar-right" do %>
+  <div class="form-group">
+    <%= text_field_tag 'search', nil, class: "form-control" %>
+    <%= button_to "Buscar", nil, class: "btn btn-default" %>
+  </div>
+  <% end %> 
+  </h1>
 </div>
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
