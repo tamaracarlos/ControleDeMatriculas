@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :matriculas
+  resources :buscas
+  resources :matriculas 
   resources :cursos
   resources :alunos
-  # get "/alunos/busca" => "alunos#busca", as: :busca_aluno
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

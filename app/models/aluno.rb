@@ -12,12 +12,11 @@ class Aluno < ActiveRecord::Base
 	validates :rg, 
 					length: {maximum: 10, message: 'deve conter no máximo 10 números'}
 
-	before_validation :data_nascimento, :if => :ano_bissexto? , message: 'ano bissexto'
-			
+	# before_validation :data_nascimento, :if => :ano_bissexto? , message: 'ano bissexto'		
 
-	def ano_bissexto?	
-		 data_nascimento.leap? == true
-	end
+	# def ano_bissexto?	
+	# 	 data_nascimento.leap? == true
+	# end
 
-	scope :search, ->(query) {where("nome like ?", "%#{query}%")}
+	# scope :search, ->(query) {where("nome like ?", "%#{query}%")}
 end

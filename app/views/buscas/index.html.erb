@@ -1,0 +1,24 @@
+<%- model_class = Busca -%>
+<div class="page-header">
+  <h1>
+  <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %> </h1>
+</div>
+
+<%= search_form_for @q do |f| %>
+<div class="form-group">
+  <%= f.label :Aluno %>
+  <%= f.search_field :aluno_nome_cont, :class => 'form-control' %></br>
+  <%= f.label :Curso %>
+  <%= f.search_field :curso_nome_cont, :class => 'form-control' %></br>
+  <%= f.label :data_da_matrícula %>
+  <%= f.search_field :data_matricula_cont, :class => 'form-control' %></br>
+  <%= f.label :ano %>
+  <%= f.search_field :ano_lteq, :class => 'form-control' %></br>
+  <%= button_to "Buscar", nil, class: "btn btn-info" %>
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              matriculas_path, :class => 'btn btn-default'  %>
+ </div>
+<% end %>
+
+
+

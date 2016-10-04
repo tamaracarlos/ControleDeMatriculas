@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929182805) do
+ActiveRecord::Schema.define(version: 20161004131903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20160929182805) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  create_table "buscas", force: :cascade do |t|
+    t.integer  "aluno_id"
+    t.integer  "curso_id"
+    t.integer  "matricula_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "buscas", ["aluno_id"], name: "index_buscas_on_aluno_id", using: :btree
+  add_index "buscas", ["curso_id"], name: "index_buscas_on_curso_id", using: :btree
+  add_index "buscas", ["matricula_id"], name: "index_buscas_on_matricula_id", using: :btree
 
   create_table "cursos", force: :cascade do |t|
     t.string   "nome"
@@ -48,6 +60,9 @@ ActiveRecord::Schema.define(version: 20160929182805) do
   add_index "matriculas", ["aluno_id"], name: "index_matriculas_on_aluno_id", using: :btree
   add_index "matriculas", ["curso_id"], name: "index_matriculas_on_curso_id", using: :btree
 
+  add_foreign_key "buscas", "alunos"
+  add_foreign_key "buscas", "cursos"
+  add_foreign_key "buscas", "matriculas"
   add_foreign_key "matriculas", "alunos"
   add_foreign_key "matriculas", "cursos"
 end

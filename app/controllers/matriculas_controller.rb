@@ -1,15 +1,15 @@
 class MatriculasController < ApplicationController
   before_action :set_matricula, only: [:show, :edit, :update, :destroy]
 
- def index
-     if params[:search]
-     @matriculas = Matricula.search(params[:search])
-    else
-     @matriculas = Matricula.all
-    end
+  def index
+   @q = Matricula.ransack(params[:q])
+   @matriculas = @q.result.includes(:aluno, :curso)
   end
 
-  def show
+  def show 
+  end
+
+  def busca
   end
 
   def new
