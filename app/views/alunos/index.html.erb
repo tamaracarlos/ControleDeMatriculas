@@ -12,11 +12,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= sort_link(@q,:nome) %></th>
-      <th><%= sort_link(@q,:telefone) %></th>    
-      <th><%= sort_link(@q,:cpf) %></th>
-      <th><%= sort_link(@q,:rg) %></th>
-      <th><%= sort_link(@q,:data_nascimento) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:telefone) %></th>    
+      <th><%= model_class.human_attribute_name(:cpf) %></th>
+      <th><%= model_class.human_attribute_name(:rg)%></th>
+      <th><%= model_class.human_attribute_name(:data_nascimento) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
