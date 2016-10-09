@@ -1,5 +1,5 @@
 class Aluno < ActiveRecord::Base
-	validates_presence_of :cpf, :rg, :nome, :telefone, message: 'deve ser preenchido'
+	validates_presence_of :cpf, :rg, :nome, :telefone, :data_nascimento, message: 'deve ser preenchido'
 
 	validates :cpf, :cpf => true
 	validates :cpf, 
@@ -10,28 +10,16 @@ class Aluno < ActiveRecord::Base
 					length: {maximum: 10, message: 'deve conter no máximo 10 números'}
 					
 	validates :rg, 
-					length: {maximum: 10, message: 'deve conter no máximo 10 números'}	
+					length: {in: 7..13, message: 'deve conter no entre 9 e 13 números'}
 
 	validate :ano_bissexto
 
-	# def ano_bissexto
-	#   if data_nascimento.leap?
-	#     errors.add(:data_nascimento, 'Ano bissexto')
-	#   end
-	# end
+	 def ano_bissexto
+ 	   if data_nascimento.leap?
+ 	     errors.add(:data_nascimento, 'Ano bissexto')
+ 	   end
+  	 end
 
-	def ano_bissexto
- 		if data_nascimento.year%4 == 0 && data_nascimento.year%100 != 0  
-    		true
- 		elsif data_nascimento.year%400 == 0 
-    		true
- 		elsif data_nascimento.year%4 == 0 && data_nascimento.year%100 == 0 && data_nascimento.year%400 != 0 
-    		false
-  		elsif data_nascimento.year%4 != 0 
-    		false
-  		end
-  		errors.add(:data_nascimento, 'Ano bissexto')
-	end 
 
-	# scope :search, ->(query) {where("nome like ?", "%#{query}%")}
+	scope :busca, ->(query) {where("nome like ?", "%#{query}%")}
 end

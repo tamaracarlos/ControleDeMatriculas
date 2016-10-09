@@ -2,13 +2,11 @@ class AlunosController < ApplicationController
   before_action :set_aluno, only: [:show, :edit, :update, :destroy]
 
   def index
-     if params[:search]
-     @alunos = Aluno.search(params[:search])
+     if params[:busca]
+     @alunos = Aluno.busca(params[:busca])
     else
      @alunos = Aluno.all
     end
-     # @q = Aluno.ransack(params[:q])
-     # @alunos = @q.result
   end
 
   def show

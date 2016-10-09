@@ -1,3 +1,5 @@
 class Curso < ActiveRecord::Base
-	# scope :search, ->(query) {where("nome like ?", "%#{query}%")}
+	validates_presence_of :nome, :valor_inscricao, :periodo, message: 'deve ser preenchido' 
+	
+	scope :busca, ->(query) {where("nome like ?", "%#{query}%")}
 end

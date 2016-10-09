@@ -1,5 +1,5 @@
 class MatriculasController < ApplicationController
-  before_action :set_matricula, only: [:show, :edit, :update, :destroy]
+  before_action :set_matricula, only: [:show, :edit, :update, :destroy, :pagar]
 
   def index
    @q = Matricula.ransack(params[:q])
@@ -52,6 +52,20 @@ class MatriculasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+   def pagar
+    respond_to do |format|
+      if @matricula.update(params.require(:matricula).permit :curso_id, :pago)
+        format.html { redirect_to @matricula, notice: 'Matrícula paga com sucesso.' }
+        format.json { render :show, status: :ok, location: @matricula }
+      else
+        format.html { render :edit }
+        format.json { render json: @matricula.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
 
   private
     def set_matricula

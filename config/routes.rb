@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "matriculas#index"
+  resources :pagamentos
   resources :buscas
   resources :matriculas 
   resources :cursos

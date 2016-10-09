@@ -22,11 +22,17 @@
         <td><%= matricula.curso.nome %></td>
         <td><%= l(matricula.data_matricula) %></td>
         <td><%= matricula.ano %></td>
-        <td><%= matricula.ativo %></td>
+        <td><%= matricula.ativo %> </td>
+        
         <td><%= matricula.pago %></td>        
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_matricula_path(matricula), :class => 'btn btn-default btn-xs' %>       
+                      edit_matricula_path(matricula), :class => 'btn btn-default btn-xs' %>  
+          
+          <%= link_to t('.pagar', :default => t("helpers.links.pagamento")),
+            new_pagamento_path,
+            :class => 'btn btn-warning btn-xs' %>
+
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       matricula_path(matricula),
                       :method => :delete,

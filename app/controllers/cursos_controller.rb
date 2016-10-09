@@ -2,8 +2,8 @@ class CursosController < ApplicationController
   before_action :set_curso, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:search]
-     @cursos = Curso.search(params[:search])
+    if params[:busca]
+     @cursos = Curso.busca(params[:busca])
     else
      @cursos = Curso.all
     end

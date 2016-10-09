@@ -14,13 +14,6 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :período, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.collection_select(:curso_id, Curso.all, :id, :periodo, {include_blank: true}, :class => 'form-control') %>
-      <%=f.error_span(:curso_id) %>
-    </div>
-  </div>
-  <div class="form-group">
     <%= f.label :data_matrícula, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.date_field :data_matricula, :class => 'form-control' %>

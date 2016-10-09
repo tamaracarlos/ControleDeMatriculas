@@ -3,7 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
     <%= form_tag cursos_path, method: :get, class: "navbar-form navbar-right" do %>
   <div class="form-group">
-    <%= text_field_tag 'search', nil, class: "form-control" %>
+    <%= text_field_tag 'busca', nil, class: "form-control" %>
     <%= button_to "Buscar", nil, class: "btn btn-default" %>
   </div>
   <% end %> 
